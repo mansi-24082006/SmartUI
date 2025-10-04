@@ -87,7 +87,8 @@ body {
   display: flex;
   position: relative;
   width: 100%;
-  max-width: 700px;
+  max-width: 1000px;
+  height: 200px;
   background-color: var(--color-secondary);
   border-radius: 10px;
   border: 1px solid var(--color-border);
@@ -119,17 +120,26 @@ body {
 }
 
 /* Preview Box */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+  padding: 1rem;
+  margin-left: 60px;
+}
 .preview {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1300px;
   height: 80vh;
   background-color: var(--color-secondary);
-  margin: 3rem 0;
   border-radius: 15px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
 }
+
 
 .preview .header {
   background-color: var(--color-tertiary);
