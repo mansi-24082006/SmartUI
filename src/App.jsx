@@ -109,7 +109,7 @@ Website prompt: ${prompt}`;
     <>
       <Navbar />
       <div className="container">
-        <h3 className="text-[30px] font-[700]">
+        <h3 className="text-[40px] font-[700]">
           Design amazing websites with{" "}
           <span className="bg-gradient-to-r from-red-500 via-orange-400 via-yellow-400 via-green-400 via-blue-400 via-indigo-500 to-purple-500 bg-clip-text text-transparent">
             WebArchitect
@@ -145,7 +145,7 @@ Website prompt: ${prompt}`;
         <p className="text-[20px] font-[700] mt-[10vh]">
           Preview your AI-generated website here.
         </p>
-
+          <div className="container">
         <div className="preview ">
           <div className="header w-full h-[70px]">
             <h3 className="font-bold text-[16px]">Live Demo</h3>
@@ -208,6 +208,7 @@ Website prompt: ${prompt}`;
               )}
             </>
           )}
+        </div>
         </div>
       </div>
 
