@@ -36,22 +36,23 @@ body {
   background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
   color: var(--color-text);
   overflow-x: hidden;
-  min-height: 120vh;
+  min-height: 100vh;
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
+  align-items: center;
   padding: 20px;
 }
 
 /* Navbar */
 .nav {
-  width: 1500px;
+  width: 100%;
+  max-width: 1600px;
   border-bottom: 1px solid var(--color-border);
   padding: 1rem 3rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 /* Icon Buttons */
@@ -68,10 +69,11 @@ body {
   border-image: conic-gradient(red, orange, yellow, green, blue, indigo, violet) 1;
 }
 .icon:hover {
-  transform: scale(1.05);            /* Slightly enlarge */
-  filter: brightness(1.2);           /* Make rainbow brighter */
-  box-shadow: 0 0 10px rgba(255,255,255,0.5); /* Glow effect */
+  transform: scale(1.05);
+  filter: brightness(1.2);
+  box-shadow: 0 0 10px rgba(255,255,255,0.5);
 }
+
 /* Container */
 .container {
   display: flex;
@@ -79,7 +81,7 @@ body {
   align-items: center;
   width: 100%;
   max-width: 1200px;
-  padding-top: 5vh;
+  padding: 2rem 1rem;
 }
 
 /* Input Box */
@@ -87,13 +89,14 @@ body {
   display: flex;
   position: relative;
   width: 100%;
-  max-width: 1000px;
-  height: 200px;
   background-color: var(--color-secondary);
   border-radius: 10px;
   border: 1px solid var(--color-border);
   margin-top: 2rem;
   padding: 1rem;
+  flex-direction: row;
+  gap: 1rem;
+  min-height: 180px;
 }
 
 .inputBox textarea {
@@ -101,12 +104,11 @@ body {
   background: transparent;
   border: none;
   outline: none;
-  border-radius: 10px;
-  min-height: 120px;
   resize: vertical;
   padding: 10px;
   color: var(--color-text);
   font-size: 1rem;
+  border-radius: 10px;
 }
 
 .inputBox .sendIcon {
@@ -120,15 +122,6 @@ body {
 }
 
 /* Preview Box */
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  width: 100%;
-  padding: 1rem;
-  /* margin-left: 60px; */
-}
 .preview {
   width: 100%;
   max-width: 1300px;
@@ -138,8 +131,8 @@ body {
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  margin-top: 3rem;
 }
-
 
 .preview .header {
   background-color: var(--color-tertiary);
@@ -201,11 +194,8 @@ body {
 
 /* Text Gradients */
 .text-gradient {
-  background: linear-gradient(
-    90deg, 
-    red, orange, yellow, green, blue, indigo, violet, red
-  );
-  background-size: 300% 100%; /* Make the gradient bigger for animation */
+  background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet, red);
+  background-size: 300% 100%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   display: inline-block;
@@ -215,39 +205,28 @@ body {
   cursor: pointer;
 }
 
-/* Animate gradient on hover */
 .text-gradient:hover {
   animation: rainbow-wave 3s linear infinite;
 }
 
-/* Keyframes for moving rainbow wave */
 @keyframes rainbow-wave {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
+/* Bubble Text Effect */
 .text-bubble-hover {
   position: relative;
   display: inline-block;
   font-weight: bold;
   font-size: 30px;
-  background: linear-gradient(
-    to right,
-    red, orange, yellow, green, blue, indigo, violet
-  );
+  background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   cursor: pointer;
 }
 
-/* Create multiple bubbles */
 .text-bubble-hover::before,
 .text-bubble-hover::after {
   content: '';
@@ -263,7 +242,6 @@ body {
   opacity: 0;
 }
 
-/* Animate bubbles on hover */
 .text-bubble-hover:hover::before {
   animation: bubble1 1.5s ease-in-out infinite;
 }
@@ -271,7 +249,6 @@ body {
 .text-bubble-hover:hover::after {
   animation: bubble2 1.5s ease-in-out infinite;
 }
-
 
 @keyframes bubble1 {
   0% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
@@ -284,45 +261,66 @@ body {
   50% { transform: translate(80%, -100%) scale(1); opacity: 0.6; }
   100% { transform: translate(200%, -180%) scale(0); opacity: 0; }
 }
-
-
-/* Responsive */
-@media screen and (max-width: 1024px) {
-  .container {
-    padding: 2rem;
-  }
-  .inputBox {
-    max-width: 90%;
-  }
-  .preview {
-    height: 70vh;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .inputBox textarea {
-    min-height: 100px;
-  }
-  .preview {
-    height: 60vh;
-  }
-}
-
 @media screen and (max-width: 480px) {
+  body {
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+
+  .nav {
+    flex-direction: column;
+    padding: 1rem;
+    gap: 10px;
+  }
+
   .inputBox {
     flex-direction: column;
-    padding: 0.5rem;
+    height: auto;
+    padding: 0.75rem;
+  }
+
+  .inputBox textarea {
+    width: 100%;
+    min-height: 100px;
+    font-size: 1rem;
+  }
+.icon {
+    width: 30px;
+    height: 20px;
+    font-size: 8px;
   }
   .inputBox .sendIcon {
-    bottom: 0.5rem;
-    right: 0.5rem;
+    position: relative;
+    align-self: flex-end;
+    margin-top: 10px;
+    bottom: auto;
+    right: auto;
   }
+
   .preview {
     width: 100%;
-    height: 50vh;
+    height: 60vh;
+    border-radius: 10px;
   }
+
+  .preview .header {
+    padding: 0.75rem 1rem;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+  }
+
   .modelBox {
     width: 100%;
     height: 90vh;
+    border-radius: 10px;
+  }
+
+  .text-gradient,
+  .text-bubble-hover {
+    font-size: 24px;
+    text-align: center;
   }
 }
+
+
