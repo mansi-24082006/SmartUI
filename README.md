@@ -2,7 +2,7 @@
 
 💡 Tired of building websites from scratch every time? **WebArchitect** helps you design fully responsive, modern, and visually stunning websites with ease — powered by AI-assisted coding and professional frontend practices.
 
-👉 **Live Demo:** [https://smart-ui-git-main-mansis-projects-9d3863cb.vercel.app/]  
+👉 **Live Demo:** [Live Preview](https://smart-ui-git-main-mansis-projects-9d3863cb.vercel.app/)  
 🎥 Demo video also available! (Optional)
 
 ---
