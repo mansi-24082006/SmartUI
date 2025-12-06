@@ -5,8 +5,6 @@
 👉 **Live Demo:** [Live Preview](https://smart-ui-git-main-mansis-projects-9d3863cb.vercel.app/)  
 🎥 Demo video also available! (Optional)
 
----
-
 ## ✨ Features
 
 ⚡ Instantly generate websites with modern UI/UX:  
