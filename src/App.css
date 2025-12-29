@@ -7,55 +7,58 @@
 
 /* ================= ROOT VARIABLES ================= */
 :root {
-  --bg-main: hsl(240, 6%, 5%);
-  --bg-secondary: hsl(240, 6%, 8%);
-  --bg-tertiary: hsl(240, 6%, 12%);
-
-  --text-main: hsl(0, 0%, 98%);
-  --text-muted: #b3b3b3;
-
-  --border-soft: hsl(240, 6%, 18%);
-  --accent: #9933ff;
-  --accent-hover: #b266ff;
-
-  --overlay: rgba(0, 0, 0, 0.75);
-
-  --shadow-soft: 0 8px 24px rgba(0, 0, 0, 0.6);
+  --color-bg: hsl(240, 6%, 5%);
+  --color-secondary: hsl(240, 6%, 8%);
+  --color-tertiary: hsl(240, 6%, 12%);
+  --color-text: hsl(0, 0%, 98%);
+  --color-text-desc: #b3b3b3;
+  --color-border: hsl(240, 29%, 92%);
+  --color-border-subtle: hsl(240, 6%, 15%);
+  --color-accent: #9933ff;
+  --color-accent-hover: hsl(270, 100%, 65%);
+  --color-overlay: rgba(0,0,0,0.75);
+  --shadow-low: 0 2px 6px rgba(0,0,0,0.5);
+  --shadow-mid: 0 4px 12px rgba(0,0,0,0.6);
+  --shadow-high: 0 8px 24px rgba(0,0,0,0.7);
 }
 
 /* ================= BODY ================= */
 body {
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
   background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
-  color: var(--text-main);
-  min-height: 100vh;
+  color: var(--color-text);
   overflow-x: hidden;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
 }
 
 /* ================= NAVBAR ================= */
 .nav {
   width: 100%;
   max-width: 1400px;
+  border-bottom: 1px solid var(--color-border);
   padding: 1rem 2rem;
-  margin: auto;
-  border-bottom: 1px solid var(--border-soft);
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
 }
 
-/* ================= ICON BUTTON ================= */
+/* ================= ICON BUTTONS ================= */
 .icon {
   width: 44px;
   height: 44px;
-  border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: 10px;
   cursor: pointer;
-  background: var(--bg-tertiary);
-  border: 1px solid var(--border-soft);
   transition: all 0.25s ease;
+  border: 1px solid var(--color-border-subtle);
+  background: var(--color-tertiary);
 }
 
 .icon:hover {
@@ -65,113 +68,154 @@ body {
 
 /* ================= CONTAINER ================= */
 .container {
-  width: 100%;
-  max-width: 1200px;
-  margin: auto;
-  padding: 2rem 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  padding: 2rem 1rem;
 }
 
 /* ================= INPUT BOX ================= */
 .inputBox {
   width: 100%;
-  background: var(--bg-secondary);
-  border: 1px solid var(--border-soft);
-  border-radius: 14px;
-  padding: 1rem;
-  margin-top: 2rem;
   position: relative;
+  display: flex;
+  background-color: var(--color-secondary);
+  border-radius: 12px;
+  border: 1px solid var(--color-border-subtle);
+  margin-top: 2rem;
+  padding: 1rem;
+  flex-direction: row;
+  gap: 1rem;
+  min-height: 180px;
 }
 
 .inputBox textarea {
-  width: 100%;
-  min-height: 140px;
+  flex: 1;
   background: transparent;
   border: none;
-  resize: none;
   outline: none;
-  color: var(--text-main);
+  resize: vertical;
+  padding: 12px;
+  color: var(--color-text);
   font-size: 1rem;
-  line-height: 1.5;
+  border-radius: 8px;
 }
 
-.inputBox textarea::placeholder {
-  color: var(--text-muted);
-}
-
-.sendIcon {
+.inputBox .sendIcon {
   position: absolute;
   right: 16px;
   bottom: 16px;
-  background: var(--accent);
-  color: white;
-  padding: 10px;
+  background: var(--color-accent);
+  color: #fff;
   border-radius: 50%;
+  padding: 10px;
   cursor: pointer;
   transition: background 0.2s ease;
 }
 
-.sendIcon:hover {
-  background: var(--accent-hover);
+.inputBox .sendIcon:hover {
+  background: var(--color-accent-hover);
 }
 
-/* ================= PREVIEW ================= */
+/* ================= PREVIEW BOX ================= */
 .preview {
   width: 100%;
-  margin-top: 3rem;
-  background: var(--bg-secondary);
+  max-width: 1300px;
+  height: 80vh;
+  background-color: var(--color-secondary);
   border-radius: 16px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  box-shadow: var(--shadow-soft);
+  margin-top: 3rem;
+  box-shadow: var(--shadow-high);
 }
 
 .preview .header {
-  background: var(--bg-tertiary);
-  padding: 1rem 1.5rem;
+  background-color: var(--color-tertiary);
+  border-bottom: 1px solid var(--color-border-subtle);
+  border-radius: 16px 16px 0 0;
+  padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid var(--border-soft);
+  flex-wrap: wrap;
+}
+
+.preview .header h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.preview .icons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.preview .icons button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-text);
+  background: var(--color-tertiary);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.preview .icons button svg {
+  font-size: 16px;
+}
+
+.preview .icons button:hover {
+  background: var(--color-secondary);
+  transform: translateY(-1px);
 }
 
 .preview iframe {
   width: 100%;
-  height: 520px;
+  flex: 1;
   border: none;
-  background: white;
+  border-radius: 0 0 16px 16px;
 }
 
 /* ================= MODAL ================= */
 .modelCon {
   position: fixed;
   inset: 0;
-  background: var(--overlay);
+  background-color: var(--color-overlay);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1000;
-  padding: 1.5rem;
+  padding: 2rem;
+  overflow-y: auto;
 }
 
 .modelBox {
   width: 100%;
-  max-width: 1300px;
+  max-width: 1200px;
   height: 90vh;
-  background: var(--bg-secondary);
-  border-radius: 18px;
-  overflow: hidden;
+  background-color: var(--color-secondary);
+  border-radius: 16px;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 
 .modelBox .header {
-  background: var(--bg-tertiary);
-  padding: 1rem 1.5rem;
-  border-bottom: 1px solid var(--border-soft);
+  padding: 1rem 2rem;
+  background-color: var(--color-tertiary);
+  border-bottom: 1px solid var(--color-border-subtle);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -181,54 +225,75 @@ body {
   width: 100%;
   flex: 1;
   border: none;
-  background: white;
+  background: #fff;
 }
 
 /* ================= TEXT EFFECTS ================= */
 .text-gradient {
-  font-size: 36px;
-  font-weight: 800;
   background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
   background-size: 300% 100%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  font-weight: bold;
+  font-size: 35px;
   cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .text-gradient:hover {
-  animation: gradientMove 3s linear infinite;
+  animation: rainbow-wave 3s linear infinite;
 }
 
-@keyframes gradientMove {
+@keyframes rainbow-wave {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
 
 /* ================= RESPONSIVE ================= */
-@media (max-width: 768px) {
-  .preview iframe {
-    height: 380px;
+@media screen and (max-width: 768px) {
+  .preview .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .preview .icons button {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  body {
+    padding: 10px;
+    font-size: 0.9rem;
   }
 
   .nav {
     flex-direction: column;
-    gap: 12px;
-  }
-}
-
-@media (max-width: 480px) {
-  body {
-    font-size: 0.9rem;
+    padding: 1rem;
+    gap: 10px;
   }
 
-  .text-gradient {
-    font-size: 24px;
-    text-align: center;
+  .inputBox {
+    flex-direction: column;
+    min-height: auto;
+    padding: 0.75rem;
+  }
+
+  .inputBox textarea {
+    min-height: 100px;
+    font-size: 1rem;
   }
 
   .icon {
     width: 36px;
     height: 36px;
+  }
+
+  .preview {
+    height: 60vh;
+    border-radius: 12px;
   }
 }
